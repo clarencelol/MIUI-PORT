@@ -74,8 +74,8 @@ cp -af $SVENDOR/etc/MIUI_DualCamera_watermark.png $PVENDOR/etc/MIUI_DualCamera_w
 
 rm -rf $PSYSTEM/system/priv-app/Updater
 
-mv $PSYSTEM/system/etc/device_features/lavender.xml $PSYSTEM/system/etc/device_features/jasmine_sprout.xml
-mv $PVENDOR/etc/device_features/lavender.xml $PVENDOR/etc/device_features/jasmine_sprout.xml
+mv $PSYSTEM/system/etc/device_features/lavender.xml $PSYSTEM/system/etc/device_features/wayne.xml
+mv $PVENDOR/etc/device_features/lavender.xml $PVENDOR/etc/device_features/wayne.xml
 
 
 sed -i "/persist.camera.HAL3.enabled=/c\persist.camera.HAL3.enabled=1
@@ -83,12 +83,12 @@ sed -i "/persist.camera.HAL3.enabled=/c\persist.camera.HAL3.enabled=1
 /ro.product.model=/c\ro.product.model=Mi A2
 /ro.build.id=/c\ro.build.id=MIUI 12 by Nebrassy
 /persist.vendor.camera.exif.model=/c\persist.vendor.camera.exif.model=Mi A2
-/ro.product.name=/c\ro.product.name=jasmine
-/ro.product.device=/c\ro.product.device=jasmine_sprout
-/ro.build.product=/c\ro.build.product=jasmine
-/ro.product.system.device=/c\ro.product.system.device=jasmine_sprout
+/ro.product.name=/c\ro.product.name=wayne
+/ro.product.device=/c\ro.product.device=wayne
+/ro.build.product=/c\ro.build.product=wayne
+/ro.product.system.device=/c\ro.product.system.device=wayne
 /ro.product.system.model=/c\ro.product.system.model=Mi A2
-/ro.product.system.name=/c\ro.product.system.name=jasmine
+/ro.product.system.name=/c\ro.product.system.name=wayne
 /ro.miui.notch=/c\ro.miui.notch=0
 /sys.paper_mode_max_level=/c\sys.paper_mode_max_level=32
 \$ i sys.tianma_nt36672_offset=12
@@ -105,14 +105,14 @@ sed -i "/ro.miui.has_cust_partition=/c\ro.miui.has_cust_partition=false" $PSYSTE
 
 
 sed -i "/ro.product.vendor.model=/c\ro.product.vendor.model=Mi A2
-/ro.product.vendor.name=/c\ro.product.vendor.name=jasmine
-/ro.product.vendor.device=/c\ro.product.vendor.device=jasmine" $PVENDOR/build.prop
+/ro.product.vendor.name=/c\ro.product.vendor.name=wayne
+/ro.product.vendor.device=/c\ro.product.vendor.device=wayne" $PVENDOR/build.prop
 
 
-sed -i "/ro.product.odm.device=/c\ro.product.odm.device=jasmine_sprout
+sed -i "/ro.product.odm.device=/c\ro.product.odm.device=wayne
 /ro.product.odm.model=/c\ro.product.odm.model=Mi A2
-/ro.product.odm.device=/c\ro.product.odm.device=jasmine_sprout
-/ro.product.odm.name=/c\ro.product.odm.name=jasmine" $PVENDOR/odm/etc/build.prop
+/ro.product.odm.device=/c\ro.product.odm.device=wayne
+/ro.product.odm.name=/c\ro.product.odm.name=wayne" $PVENDOR/odm/etc/build.prop
 
 
 rm -rf $PVENDOR/firmware
@@ -263,7 +263,7 @@ sed -i "/support_dual_sd_card/c\    <bool name=\"support_dual_sd_card\">true<\/b
 /is_redmi/c\    <bool name=\"is_redmi\">false<\/bool>
 /paper_mode_max_level/c\    <float name=\"paper_mode_max_level\">32.0<\/float>
 /paper_mode_min_level/c\    <float name=\"paper_mode_min_level\">0.0<\/float>
-/is_18x9_ratio_screen/c\    <bool name=\"is_18x9_ratio_screen\">true<\/bool>" $PSYSTEM/system/etc/device_features/jasmine_sprout.xml
+/is_18x9_ratio_screen/c\    <bool name=\"is_18x9_ratio_screen\">true<\/bool>" $PSYSTEM/system/etc/device_features/wayne.xml
 
 
 #vendor/etc/device_features
@@ -275,7 +275,7 @@ sed -i "/support_dual_sd_card/c\    <bool name=\"support_dual_sd_card\">true<\/b
 /is_redmi/c\    <bool name=\"is_redmi\">false<\/bool>
 /paper_mode_max_level/c\    <float name=\"paper_mode_max_level\">32.0<\/float>
 /paper_mode_min_level/c\    <float name=\"paper_mode_min_level\">0.0<\/float>
-/is_18x9_ratio_screen/c\    <bool name=\"is_18x9_ratio_screen\">true<\/bool>" $PVENDOR/etc/device_features/jasmine_sprout.xml
+/is_18x9_ratio_screen/c\    <bool name=\"is_18x9_ratio_screen\">true<\/bool>" $PVENDOR/etc/device_features/wayne.xml
 
 
 #AUDIO
