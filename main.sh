@@ -1,7 +1,7 @@
-SVENDOR=/mnt/vendora2
-SSYSTEM=/mnt/systema2
-PVENDOR=/mnt/vendorport
-PSYSTEM=/mnt/systemport
+SVENDOR=/$CURRENTDIR/vendora2
+SSYSTEM=/$CURRENTDIR/systema2
+PVENDOR=/$CURRENTDIR/vendorport
+PSYSTEM=/$CURRENTDIR/systemport
 CURRENTUSER=$4
 SOURCEROM=$3
 SCRIPTDIR=$(readlink -f "$0")
@@ -35,8 +35,6 @@ $TOOLS/sdat2img/sdat2img.py $OUTP/system.transfer.list $OUTP/system.new.dat $OUT
 $TOOLS/sdat2img/sdat2img.py $OUTP/vendor.transfer.list $OUTP/vendor.new.dat $OUTP/vendorport.img
 rm $OUTP/vendor.img $OUTP/system.img $OUTP/system.new.dat $OUTP/vendor.new.dat $OUTP/system.transfer.list $OUTP/vendor.transfer.list
 
-
-unalias cp || true
 mkdir $PSYSTEM || true
 mkdir $PVENDOR || true
 mkdir $SVENDOR || true
@@ -72,7 +70,7 @@ mv $PVENDOR/etc/device_features/lavender.xml $PVENDOR/etc/device_features/wayne.
 sed -i "/persist.camera.HAL3.enabled=/c\persist.camera.HAL3.enabled=1
 /persist.vendor.camera.HAL3.enabled=/c\persist.vendor.camera.HAL3.enabled=1
 /ro.product.model=/c\ro.product.model=Mi A2
-/ro.build.id=/c\ro.build.id=MIUI 12 by Nebrassy
+/ro.build.id=/c\ro.build.id=MIUI 12 by Clarence
 /persist.vendor.camera.exif.model=/c\persist.vendor.camera.exif.model=Mi A2
 /ro.product.name=/c\ro.product.name=wayne
 /ro.product.device=/c\ro.product.device=wayne
@@ -235,12 +233,12 @@ rm -rf $PSYSTEM/system/etc/firmware || true
 cp -Raf $SSYSTEM/system/etc/firmware/* $PVENDOR/firmware/ || true
 
 
-cp -f $OUTP/libwifi-hal64.so $PVENDOR/lib64/libwifi-hal.so
+cp -f $CURRENTUSER/lib/libwifi-hal64.so $PVENDOR/lib64/libwifi-hal.so
 chmod 644 $PVENDOR/lib64/libwifi-hal.so
 chown -hR root:root $PVENDOR/lib64/libwifi-hal.so
 setfattr -h -n security.selinux -v u:object_r:vendor_file:s0 $PVENDOR/lib64/libwifi-hal.so
 
-cp -f $OUTP/libwifi-hal32.so $PVENDOR/lib/libwifi-hal.so
+cp -f $CURRENTUSER/lib/libwifi-hal32.so $PVENDOR/lib/libwifi-hal.so
 chmod 644 $PVENDOR/lib/libwifi-hal.so
 chown -hR root:root $PVENDOR/lib/libwifi-hal.so
 setfattr -h -n security.selinux -v u:object_r:vendor_file:s0 $PVENDOR/lib/libwifi-hal.so
